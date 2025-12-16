@@ -1,17 +1,73 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfq2iqhuccltx"]
+[gd_scene load_steps=10 format=3 uid="uid://dfq2iqhuccltx"]
 
+[ext_resource type="Script" uid="uid://bit6j1i1d5r1a" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://assets/graphics/map.png" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://dghd7rii024ea" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dghd7rii024ea" path="res://scenes/characters/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://d3mwt0tc8jd0y" path="res://scenes/scenery/treeGreen.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://06ksn3imtn1b" path="res://scenes/scenery/treeOrange.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cisnkb6ak644a" path="res://scenes/scenery/houseShort.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://cxn203x0t8wv1" path="res://scenes/utils/world_boundary.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://cl3apgjfx5pyl" path="res://scenes/scenery/houseTall.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://ckaipvm7b7wnn" path="res://scenes/scenery/trafficLight.tscn" id="8_gee14"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_0tnpc")
+metadata/_edit_vertical_guides_ = [385.0]
+metadata/_edit_horizontal_guides_ = [640.0]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(193, 320)
 texture = ExtResource("1_uwrxv")
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(-30, 55)
+position = Vector2(89, 537)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(5, 5)
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 385
+limit_bottom = 640
 position_smoothing_enabled = true
+
+[node name="SceneryElements" type="Node" parent="."]
+
+[node name="treeGreen1" parent="SceneryElements" instance=ExtResource("3_lnu2h")]
+position = Vector2(55, 541)
+
+[node name="treeGreen2" parent="SceneryElements" instance=ExtResource("3_lnu2h")]
+position = Vector2(123, 541)
+
+[node name="treeOrange1" parent="SceneryElements" instance=ExtResource("4_lbhrr")]
+position = Vector2(123, 575)
+
+[node name="treeOrange2" parent="SceneryElements" instance=ExtResource("4_lbhrr")]
+position = Vector2(55, 574)
+
+[node name="houseShort" parent="SceneryElements" instance=ExtResource("5_iywne")]
+position = Vector2(181, 596)
+
+[node name="houseTall" parent="SceneryElements" instance=ExtResource("7_u5sy4")]
+position = Vector2(270, 596)
+
+[node name="TrafficLight" parent="SceneryElements" instance=ExtResource("8_gee14")]
+position = Vector2(246, 397)
+
+[node name="TrafficLight2" parent="SceneryElements" instance=ExtResource("8_gee14")]
+position = Vector2(246, 341)
+
+[node name="WorldBoundaries" type="Node" parent="."]
+
+[node name="WorldBoundary_Top" parent="WorldBoundaries" instance=ExtResource("6_p57ef")]
+rotation = -3.1415925
+
+[node name="WorldBoundary_Left" parent="WorldBoundaries" instance=ExtResource("6_p57ef")]
+rotation = 1.5707964
+
+[node name="WorldBoundary_Right" parent="WorldBoundaries" instance=ExtResource("6_p57ef")]
+position = Vector2(385, 0)
+rotation = -1.5707964
+
+[node name="WorldBoundary_Bottom" parent="WorldBoundaries" instance=ExtResource("6_p57ef")]
+position = Vector2(0, 640)
+rotation = 0.0

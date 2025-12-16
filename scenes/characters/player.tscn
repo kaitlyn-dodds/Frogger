@@ -73,6 +73,9 @@ animations = [{
 "texture": SubResource("AtlasTexture_jej6c")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f1ej7")
 }],
 "loop": true,
@@ -85,6 +88,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qlg0r")
@@ -101,6 +107,9 @@ animations = [{
 "texture": SubResource("AtlasTexture_fjrip")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_smehm")
 }],
 "loop": true,
@@ -113,6 +122,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d2wvv")
@@ -131,9 +143,8 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"move_down"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.4659891
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
