@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfq2iqhuccltx"]
+[gd_scene load_steps=13 format=3 uid="uid://dfq2iqhuccltx"]
 
 [ext_resource type="Script" uid="uid://bit6j1i1d5r1a" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://assets/graphics/map.png" id="1_uwrxv"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://cxn203x0t8wv1" path="res://scenes/utils/world_boundary.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cl3apgjfx5pyl" path="res://scenes/scenery/houseTall.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://ckaipvm7b7wnn" path="res://scenes/scenery/trafficLight.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://bwb70udk0uxsi" path="res://scenes/utils/despawn_area.tscn" id="10_vtaks"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
+distance = -22.000015
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kvpfn"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_0tnpc")
@@ -71,3 +77,28 @@ rotation = -1.5707964
 [node name="WorldBoundary_Bottom" parent="WorldBoundaries" instance=ExtResource("6_p57ef")]
 position = Vector2(0, 640)
 rotation = 0.0
+
+[node name="Timer" type="Node" parent="."]
+
+[node name="CarTimer" type="Timer" parent="Timer"]
+autostart = true
+
+[node name="Cars" type="Node" parent="."]
+
+[node name="CarDespawnAreas" type="Node" parent="."]
+
+[node name="DespawnLeft" parent="CarDespawnAreas" instance=ExtResource("10_vtaks")]
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarDespawnAreas/DespawnLeft"]
+position = Vector2(1, 28.999985)
+shape = SubResource("WorldBoundaryShape2D_vtaks")
+
+[node name="DespawnRight" parent="CarDespawnAreas" instance=ExtResource("10_vtaks")]
+position = Vector2(420, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarDespawnAreas/DespawnRight"]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_kvpfn")
+
+[connection signal="timeout" from="Timer/CarTimer" to="." method="_on_car_timer_timeout"]
