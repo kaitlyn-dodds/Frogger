@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfq2iqhuccltx"]
+[gd_scene load_steps=14 format=3 uid="uid://dfq2iqhuccltx"]
 
 [ext_resource type="Script" uid="uid://bit6j1i1d5r1a" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://assets/graphics/map.png" id="1_uwrxv"]
@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cxn203x0t8wv1" path="res://scenes/utils/world_boundary.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cl3apgjfx5pyl" path="res://scenes/scenery/houseTall.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://ckaipvm7b7wnn" path="res://scenes/scenery/trafficLight.tscn" id="8_gee14"]
-[ext_resource type="PackedScene" uid="uid://bwb70udk0uxsi" path="res://scenes/utils/despawn_area.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bwb70udk0uxsi" path="res://scenes/utils/car_despawn_area.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://cq8olbtopomns" path="res://scenes/utils/car_spawn_point.tscn" id="11_kvpfn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 distance = -22.000015
@@ -78,11 +79,6 @@ rotation = -1.5707964
 position = Vector2(0, 640)
 rotation = 0.0
 
-[node name="Timer" type="Node" parent="."]
-
-[node name="CarTimer" type="Timer" parent="Timer"]
-autostart = true
-
 [node name="Cars" type="Node" parent="."]
 
 [node name="CarDespawnAreas" type="Node" parent="."]
@@ -101,4 +97,16 @@ position = Vector2(420, 0)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_kvpfn")
 
-[connection signal="timeout" from="Timer/CarTimer" to="." method="_on_car_timer_timeout"]
+[node name="CarSpawnPoints" type="Node" parent="."]
+
+[node name="CarSpawnPoint" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
+position = Vector2(-5, 482)
+
+[node name="CarSpawnPoint2" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
+position = Vector2(392, 459)
+
+[node name="CarSpawnPoint3" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
+position = Vector2(391, 436)
+
+[node name="CarSpawnPoint4" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
+position = Vector2(-5, 413)
