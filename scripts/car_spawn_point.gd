@@ -6,15 +6,15 @@ var car_scene: PackedScene = preload("res://scenes/characters/car.tscn")
 @onready var cars: Node2D = $"../../Level/Cars"
 @onready var pos_marker: Marker2D = $Marker2D
 
-@export var carSpeed: int = 100
-@export var spawnFrequency: float = 1.0
-@export var spawnJitter: float = 0.0
+@export var car_speed: int = 100
+@export var spawn_frequency: float = 1.0
+@export var spawn_jitter: float = 0.0
 
 var rng := RandomNumberGenerator.new()
 
 func _ready() -> void:
 	# set timer wait time
-	timer.wait_time = spawnFrequency
+	timer.wait_time = spawn_frequency
 	
 	# only call once in _ready
 	rng.randomize()
@@ -25,7 +25,7 @@ func spawn_car() -> void:
 	car.position = pos_marker.global_position
 	
 	# set car speed
-	car.set_speed(carSpeed)
+	car.set_speed(car_speed)
 	
 	# add to cars node
 	cars.add_child(car)
@@ -46,6 +46,6 @@ func _on_timer_timeout() -> void:
 
 
 func _get_next_offset() -> float:
-	return max(.3, spawnFrequency + rng.randf_range(-spawnJitter, spawnJitter))
+	return max(.3, spawn_frequency + rng.randf_range(-spawn_jitter, spawn_jitter))
 	
 	

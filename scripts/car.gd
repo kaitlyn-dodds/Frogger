@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite: Sprite2D = $Sprite2D
 
 var direction = Vector2.LEFT
 var speed = 200
@@ -12,11 +12,11 @@ var variations  = [
 
 func _ready() -> void:
 	# set sprite
-	sprite_2d.texture = variations.pick_random()
+	sprite.texture = variations.pick_random()
 	
 	if position.x < 0:  # car direction should be flipped
 		direction.x = 1
-		sprite_2d.flip_h = true
+		sprite.flip_h = true
 
 func _process(delta: float) -> void:
 	position += (direction * speed) * delta

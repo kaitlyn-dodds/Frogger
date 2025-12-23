@@ -323,58 +323,58 @@ shape = SubResource("WorldBoundaryShape2D_kvpfn")
 
 [node name="CarSpawnPoint" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(-5, 482)
-spawnJitter = 0.5
+spawn_jitter = 0.5
 metadata/_edit_lock_ = true
 
 [node name="CarSpawnPoint2" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(392, 459)
-carSpeed = 150
-spawnFrequency = 2.0
-spawnJitter = 2.0
+car_speed = 150
+spawn_frequency = 2.0
+spawn_jitter = 2.0
 metadata/_edit_lock_ = true
 
 [node name="CarSpawnPoint3" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(391, 436)
-spawnFrequency = 0.5
-spawnJitter = 0.8
+spawn_frequency = 0.5
+spawn_jitter = 0.8
 metadata/_edit_lock_ = true
 
 [node name="CarSpawnPoint4" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(-5, 413)
-carSpeed = 160
-spawnFrequency = 1.2
-spawnJitter = 1.5
+car_speed = 160
+spawn_frequency = 1.2
+spawn_jitter = 1.5
 metadata/_edit_lock_ = true
 
 [node name="CarSpawnPoint5" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(-6, 322)
-carSpeed = 175
-spawnFrequency = 0.8
-spawnJitter = 1.0
+car_speed = 175
+spawn_frequency = 0.8
+spawn_jitter = 1.0
 
 [node name="CarSpawnPoint6" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(-6, 296)
-carSpeed = 190
-spawnFrequency = 0.6
-spawnJitter = 1.0
+car_speed = 190
+spawn_frequency = 0.6
+spawn_jitter = 1.0
 
 [node name="CarSpawnPoint7" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(391, 269)
-carSpeed = 120
-spawnFrequency = 0.5
-spawnJitter = 0.3
+car_speed = 120
+spawn_frequency = 0.5
+spawn_jitter = 0.3
 
 [node name="CarSpawnPoint8" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(390, 226)
-carSpeed = 200
-spawnFrequency = 0.3
-spawnJitter = 0.3
+car_speed = 200
+spawn_frequency = 0.3
+spawn_jitter = 0.3
 
 [node name="CarSpawnPoint9" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(-5, 204)
-carSpeed = 230
-spawnFrequency = 0.3
-spawnJitter = 0.4
+car_speed = 230
+spawn_frequency = 0.3
+spawn_jitter = 0.4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -392,7 +392,7 @@ label_settings = SubResource("LabelSettings_sww3w")
 horizontal_alignment = 1
 
 [node name="CountdownLabel" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

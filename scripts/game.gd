@@ -15,11 +15,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# update countdown timer
 	if is_instance_valid(countdown_label):
-		var timeLeft: int = int(ready_set_timer.time_left)
-		if timeLeft == 0:
+		var time_left: int = int(ready_set_timer.time_left)
+		if time_left == 0:
 			countdown_label.text = "Go!"
 		else:	
-			countdown_label.text = str(timeLeft)
+			countdown_label.text = str(time_left)
 	
 	
 func _on_score_timer_timeout() -> void:
