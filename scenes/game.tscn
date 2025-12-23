@@ -47,6 +47,7 @@ y_sort_enabled = true
 
 [node name="Player" parent="Level" instance=ExtResource("2_yqjtg")]
 position = Vector2(89, 537)
+SPEED = 6000.0
 
 [node name="Camera2D" type="Camera2D" parent="Level/Player"]
 zoom = Vector2(4, 4)
@@ -131,6 +132,15 @@ position = Vector2(338, 31)
 [node name="Node2D18" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
 position = Vector2(10, 121)
 
+[node name="Node2D19" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(379, 548)
+
+[node name="Node2D20" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(373, 633)
+
+[node name="Node2D21" parent="Level/Trees" instance=ExtResource("4_lbhrr")]
+position = Vector2(229, 603)
+
 [node name="Cars" type="Node2D" parent="Level"]
 y_sort_enabled = true
 
@@ -145,6 +155,12 @@ position = Vector2(270, 596)
 
 [node name="House2" parent="Level/Houses" instance=ExtResource("7_u5sy4")]
 position = Vector2(196, 89)
+
+[node name="StaticBody2D" parent="Level/Houses" instance=ExtResource("18_ssvqc")]
+position = Vector2(336, 595)
+
+[node name="StaticBody2D2" parent="Level/Houses" instance=ExtResource("12_ir15t")]
+position = Vector2(369, 595)
 
 [node name="Misc" type="Node2D" parent="Level"]
 y_sort_enabled = true
@@ -291,16 +307,55 @@ shape = SubResource("WorldBoundaryShape2D_kvpfn")
 
 [node name="CarSpawnPoint" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(-5, 482)
+spawnJitter = 0.5
 metadata/_edit_lock_ = true
 
 [node name="CarSpawnPoint2" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(392, 459)
+carSpeed = 150
+spawnFrequency = 2.0
+spawnJitter = 2.0
 metadata/_edit_lock_ = true
 
 [node name="CarSpawnPoint3" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(391, 436)
+spawnFrequency = 0.5
+spawnJitter = 0.8
 metadata/_edit_lock_ = true
 
 [node name="CarSpawnPoint4" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(-5, 413)
+carSpeed = 160
+spawnFrequency = 1.2
+spawnJitter = 1.5
 metadata/_edit_lock_ = true
+
+[node name="CarSpawnPoint5" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
+position = Vector2(-6, 322)
+carSpeed = 175
+spawnFrequency = 0.8
+spawnJitter = 1.0
+
+[node name="CarSpawnPoint6" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
+position = Vector2(-6, 296)
+carSpeed = 190
+spawnFrequency = 0.6
+spawnJitter = 1.0
+
+[node name="CarSpawnPoint7" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
+position = Vector2(391, 269)
+carSpeed = 120
+spawnFrequency = 0.5
+spawnJitter = 0.3
+
+[node name="CarSpawnPoint8" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
+position = Vector2(390, 226)
+carSpeed = 200
+spawnFrequency = 0.3
+spawnJitter = 0.3
+
+[node name="CarSpawnPoint9" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
+position = Vector2(-5, 204)
+carSpeed = 230
+spawnFrequency = 0.3
+spawnJitter = 0.4

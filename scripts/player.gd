@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-const SPEED = 4000.0
+@export var SPEED = 4000.0
 const JUMP_VELOCITY = -400.0
 
 func setPlayerAnimation(direction: Vector2) -> void:
