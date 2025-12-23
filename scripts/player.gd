@@ -7,7 +7,10 @@ const JUMP_VELOCITY = -400.0
 
 func _set_player_animation(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
-		player_sprite.play("idle")
+		if Global.player_dead:
+			player_sprite.play("dead")
+		else:
+			player_sprite.play("idle")
 		return
 		
 	if direction.x != 0:

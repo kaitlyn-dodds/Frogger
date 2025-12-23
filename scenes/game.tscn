@@ -367,13 +367,13 @@ spawn_jitter = 0.3
 [node name="CarSpawnPoint8" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(390, 226)
 car_speed = 200
-spawn_frequency = 0.3
-spawn_jitter = 0.3
+spawn_frequency = 0.5
+spawn_jitter = 0.5
 
 [node name="CarSpawnPoint9" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(-5, 204)
 car_speed = 230
-spawn_frequency = 0.3
+spawn_frequency = 0.9
 spawn_jitter = 0.4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

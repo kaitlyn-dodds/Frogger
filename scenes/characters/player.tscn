@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://dghd7rii024ea"]
+[gd_scene load_steps=19 format=3 uid="uid://dghd7rii024ea"]
 
 [ext_resource type="Script" uid="uid://c1u7dvya2dvhi" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bj4342twa3cqq" path="res://assets/graphics/player/player_dead.png" id="2_76oj4"]
 [ext_resource type="Texture2D" uid="uid://c4q6c7mxqh78h" path="res://assets/graphics/player/player_tileset.png" id="2_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
@@ -57,6 +58,14 @@ region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_76oj4")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g2els")
@@ -145,7 +154,7 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"idle"
+animation = &"dead"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
