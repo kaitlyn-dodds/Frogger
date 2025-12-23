@@ -31,11 +31,7 @@ func spawn_car() -> void:
 	cars.add_child(car)
 	
 	# connection
-	car.connect("body_entered", _go_to_title)
-
-	
-func _go_to_title(_node: Node2D) -> void:
-	Global.go_to_title()
+	car.connect("body_entered", Global.hit_player)
 	
 	
 func _on_timer_timeout() -> void:

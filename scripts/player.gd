@@ -19,9 +19,6 @@ func _set_player_animation(direction: Vector2) -> void:
 func _handle_player_movement(delta: float) -> void:
 	# Get the input direction 
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-
-	# set character animation 
-	_set_player_animation(direction)
 	
 	# set velocity
 	velocity = direction * SPEED * delta
@@ -30,5 +27,11 @@ func _handle_player_movement(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if Global.player_can_move:	
 		_handle_player_movement(delta)
+		
+	if Global.player_dead:
+		velocity = Vector2.ZERO
+		
+	# set character animation 
+	_set_player_animation(velocity)
 	
 	move_and_slide()
