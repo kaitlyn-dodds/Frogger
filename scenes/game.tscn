@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dfq2iqhuccltx"]
+[gd_scene load_steps=32 format=3 uid="uid://dfq2iqhuccltx"]
 
 [ext_resource type="Script" uid="uid://bit6j1i1d5r1a" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://assets/graphics/map.png" id="1_uwrxv"]
@@ -26,11 +26,21 @@
 [ext_resource type="PackedScene" uid="uid://xnnkb1f4rjmy" path="res://scenes/scenery/bench.tscn" id="24_e1j6l"]
 [ext_resource type="PackedScene" uid="uid://dn11isifo0j3t" path="res://scenes/scenery/bench_right.tscn" id="25_bhx41"]
 [ext_resource type="PackedScene" uid="uid://bnrrhb4qorwcv" path="res://scenes/scenery/light.tscn" id="26_qnb83"]
+[ext_resource type="FontFile" uid="uid://hqpa84d2dqvp" path="res://assets/fonts/Better VCR 9.0.1.ttf" id="27_qnb83"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 distance = -22.000015
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kvpfn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sww3w"]
+font = ExtResource("27_qnb83")
+font_size = 30
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnb83"]
+size = Vector2(384, 156)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_0tnpc")
@@ -359,3 +369,32 @@ position = Vector2(-5, 204)
 carSpeed = 230
 spawnFrequency = 0.3
 spawnJitter = 0.4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "0"
+label_settings = SubResource("LabelSettings_sww3w")
+horizontal_alignment = 1
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="FinishArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
+position = Vector2(193, 85)
+shape = SubResource("RectangleShape2D_qnb83")
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]

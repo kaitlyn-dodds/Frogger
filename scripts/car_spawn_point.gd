@@ -18,6 +18,7 @@ func _ready() -> void:
 	
 	# only call once in _ready
 	rng.randomize()
+	
 
 func spawn_car() -> void:
 	var car: Area2D = car_scene.instantiate()
@@ -30,17 +31,20 @@ func spawn_car() -> void:
 	cars.add_child(car)
 	
 	# connection
-	car.connect("body_entered", go_to_title)
+	car.connect("body_entered", _go_to_title)
 
+	
+func _go_to_title(_node: Node2D) -> void:
+	Global.go_to_title()
+	
+	
 func _on_timer_timeout() -> void:
 	spawn_car()
 	
 	# add random jitter
-	timer.wait_time = _get_next_offset()
-	
-func go_to_title(node: Node2D) -> void:
-	print("should go to title")
-	
+	timer.wait_time = _get_next_offset()	
+
+
 func _get_next_offset() -> float:
 	return max(.3, spawnFrequency + rng.randf_range(-spawnJitter, spawnJitter))
 	
