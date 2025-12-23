@@ -14,8 +14,9 @@ func setPlayerAnimation(direction: Vector2) -> void:
 		player_sprite.play("move_right" if direction.x > 0 else "move_left")
 	else:
 		player_sprite.play("move_down" if direction.y > 0 else "move_up")
+		
 
-func _physics_process(delta: float) -> void:
+func handle_player_movement(delta: float) -> void:
 	# Get the input direction 
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
@@ -24,5 +25,10 @@ func _physics_process(delta: float) -> void:
 	
 	# set velocity
 	velocity = direction * SPEED * delta
+	
+
+func _physics_process(delta: float) -> void:
+	if Global.player_can_move:	
+		handle_player_movement(delta)
 	
 	move_and_slide()

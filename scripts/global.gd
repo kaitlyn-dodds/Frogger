@@ -1,6 +1,7 @@
 extends Node
 
 var score: int = 0
+var player_can_move: bool = false
 
 func restart() -> void:
 	call_deferred("change_scene", "res://scenes/game.tscn")
