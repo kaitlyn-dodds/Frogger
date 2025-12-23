@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfq2iqhuccltx"]
+[gd_scene load_steps=29 format=3 uid="uid://dfq2iqhuccltx"]
 
 [ext_resource type="Script" uid="uid://bit6j1i1d5r1a" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://assets/graphics/map.png" id="1_uwrxv"]
@@ -9,8 +9,23 @@
 [ext_resource type="PackedScene" uid="uid://cxn203x0t8wv1" path="res://scenes/utils/world_boundary.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cl3apgjfx5pyl" path="res://scenes/scenery/houseTall.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://ckaipvm7b7wnn" path="res://scenes/scenery/trafficLight.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://cthw4u2ht2dh4" path="res://scenes/scenery/box_1.tscn" id="9_kvuet"]
+[ext_resource type="PackedScene" uid="uid://b8bj6a85lplmx" path="res://scenes/scenery/box_2.tscn" id="10_trtic"]
 [ext_resource type="PackedScene" uid="uid://bwb70udk0uxsi" path="res://scenes/utils/car_despawn_area.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cq8olbtopomns" path="res://scenes/utils/car_spawn_point.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://3k01150tt740" path="res://scenes/scenery/box_3.tscn" id="11_trtic"]
+[ext_resource type="PackedScene" uid="uid://b5pu122v27yf3" path="res://scenes/scenery/sign.tscn" id="12_ir15t"]
+[ext_resource type="Texture2D" uid="uid://c5iy3tuxd0vaw" path="res://assets/graphics/objects/barrier.png" id="13_264po"]
+[ext_resource type="PackedScene" uid="uid://dgy1pew5vv3bi" path="res://scenes/scenery/line.tscn" id="13_ca42v"]
+[ext_resource type="PackedScene" uid="uid://c4x3yxikd56d4" path="res://scenes/scenery/green_car.tscn" id="14_1kice"]
+[ext_resource type="PackedScene" uid="uid://y4cm3fjgdkun" path="res://scenes/scenery/bin.tscn" id="14_rysoc"]
+[ext_resource type="Texture2D" uid="uid://cgvtilagem3np" path="res://assets/graphics/objects/red car.png" id="15_37s47"]
+[ext_resource type="Texture2D" uid="uid://b8fq8sgkmu4dx" path="res://assets/graphics/objects/green car.png" id="16_bt5mj"]
+[ext_resource type="PackedScene" uid="uid://bjij53u8y1cu8" path="res://scenes/scenery/taxi.tscn" id="17_bt5mj"]
+[ext_resource type="PackedScene" uid="uid://bi2dnr0ynaqk6" path="res://scenes/scenery/house_3.tscn" id="18_ssvqc"]
+[ext_resource type="PackedScene" uid="uid://xnnkb1f4rjmy" path="res://scenes/scenery/bench.tscn" id="24_e1j6l"]
+[ext_resource type="PackedScene" uid="uid://dn11isifo0j3t" path="res://scenes/scenery/bench_right.tscn" id="25_bhx41"]
+[ext_resource type="PackedScene" uid="uid://bnrrhb4qorwcv" path="res://scenes/scenery/light.tscn" id="26_qnb83"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 distance = -22.000015
@@ -25,11 +40,15 @@ metadata/_edit_horizontal_guides_ = [640.0]
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(193, 320)
 texture = ExtResource("1_uwrxv")
+metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_yqjtg")]
+[node name="Level" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Level" instance=ExtResource("2_yqjtg")]
 position = Vector2(89, 537)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Level/Player"]
 zoom = Vector2(4, 4)
 limit_left = 0
 limit_top = 0
@@ -37,54 +56,224 @@ limit_right = 385
 limit_bottom = 640
 position_smoothing_enabled = true
 
-[node name="SceneryElements" type="Node" parent="."]
+[node name="Trees" type="Node2D" parent="Level"]
+y_sort_enabled = true
 
-[node name="treeGreen1" parent="SceneryElements" instance=ExtResource("3_lnu2h")]
+[node name="treeOrange3" parent="Level/Trees" instance=ExtResource("4_lbhrr")]
+position = Vector2(23, 567)
+
+[node name="treeGreen1" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
 position = Vector2(55, 541)
 
-[node name="treeGreen2" parent="SceneryElements" instance=ExtResource("3_lnu2h")]
+[node name="treeGreen2" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
 position = Vector2(123, 541)
 
-[node name="treeOrange1" parent="SceneryElements" instance=ExtResource("4_lbhrr")]
+[node name="treeOrange1" parent="Level/Trees" instance=ExtResource("4_lbhrr")]
 position = Vector2(123, 575)
 
-[node name="treeOrange2" parent="SceneryElements" instance=ExtResource("4_lbhrr")]
+[node name="treeOrange2" parent="Level/Trees" instance=ExtResource("4_lbhrr")]
 position = Vector2(55, 574)
 
-[node name="houseShort" parent="SceneryElements" instance=ExtResource("5_iywne")]
+[node name="treeGreen3" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(301, 605)
+
+[node name="Node2D" parent="Level/Trees" instance=ExtResource("4_lbhrr")]
+position = Vector2(36, 591)
+
+[node name="Node2D2" parent="Level/Trees" instance=ExtResource("4_lbhrr")]
+position = Vector2(20, 619)
+
+[node name="Node2D3" parent="Level/Trees" instance=ExtResource("4_lbhrr")]
+position = Vector2(49, 631)
+
+[node name="Node2D4" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(11, 541)
+
+[node name="Node2D5" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(126, 635)
+
+[node name="Node2D6" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(52, 606)
+
+[node name="Node2D7" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(313, 250)
+
+[node name="Node2D8" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(62, 251)
+
+[node name="Node2D9" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(164, 251)
+
+[node name="Node2D10" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(14, 185)
+
+[node name="Node2D11" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(368, 185)
+
+[node name="Node2D12" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(99, 120)
+
+[node name="Node2D13" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(319, 120)
+
+[node name="Node2D14" parent="Level/Trees" instance=ExtResource("4_lbhrr")]
+position = Vector2(21, 26)
+
+[node name="Node2D15" parent="Level/Trees" instance=ExtResource("4_lbhrr")]
+position = Vector2(343, 70)
+
+[node name="Node2D16" parent="Level/Trees" instance=ExtResource("4_lbhrr")]
+position = Vector2(145, 87)
+
+[node name="Node2D17" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(338, 31)
+
+[node name="Node2D18" parent="Level/Trees" instance=ExtResource("3_lnu2h")]
+position = Vector2(10, 121)
+
+[node name="Cars" type="Node2D" parent="Level"]
+y_sort_enabled = true
+
+[node name="Houses" type="Node2D" parent="Level"]
+y_sort_enabled = true
+
+[node name="houseShort" parent="Level/Houses" instance=ExtResource("5_iywne")]
 position = Vector2(181, 596)
 
-[node name="houseTall" parent="SceneryElements" instance=ExtResource("7_u5sy4")]
+[node name="houseTall" parent="Level/Houses" instance=ExtResource("7_u5sy4")]
 position = Vector2(270, 596)
 
-[node name="TrafficLight" parent="SceneryElements" instance=ExtResource("8_gee14")]
+[node name="House2" parent="Level/Houses" instance=ExtResource("7_u5sy4")]
+position = Vector2(196, 89)
+
+[node name="Misc" type="Node2D" parent="Level"]
+y_sort_enabled = true
+
+[node name="TrafficLight" parent="Level/Misc" instance=ExtResource("8_gee14")]
 position = Vector2(246, 397)
 
-[node name="TrafficLight2" parent="SceneryElements" instance=ExtResource("8_gee14")]
+[node name="TrafficLight2" parent="Level/Misc" instance=ExtResource("8_gee14")]
 position = Vector2(246, 341)
+
+[node name="StaticBody2D" parent="Level/Misc" instance=ExtResource("11_trtic")]
+position = Vector2(177, 386)
+
+[node name="StaticBody2D2" parent="Level/Misc" instance=ExtResource("11_trtic")]
+position = Vector2(146, 386)
+
+[node name="StaticBody2D3" parent="Level/Misc" instance=ExtResource("12_ir15t")]
+position = Vector2(295, 109)
+
+[node name="StaticBody2D4" parent="Level/Misc" instance=ExtResource("12_ir15t")]
+position = Vector2(110, 539)
+
+[node name="StaticBody2D5" parent="Level/Misc" instance=ExtResource("13_ca42v")]
+position = Vector2(47, 108)
+
+[node name="StaticBody2D6" parent="Level/Misc" instance=ExtResource("14_rysoc")]
+position = Vector2(120, 100)
+
+[node name="StaticBody2D7" parent="Level/Misc" instance=ExtResource("14_rysoc")]
+position = Vector2(183, 343)
+
+[node name="Barrier" type="Sprite2D" parent="Level/Misc"]
+position = Vector2(258, 341)
+texture = ExtResource("13_264po")
+
+[node name="Barrier2" type="Sprite2D" parent="Level/Misc"]
+position = Vector2(188, 180)
+texture = ExtResource("13_264po")
+
+[node name="Barrier3" type="Sprite2D" parent="Level/Misc"]
+position = Vector2(222, 180)
+texture = ExtResource("13_264po")
+
+[node name="StaticBody2D8" parent="Level/Misc" instance=ExtResource("14_1kice")]
+position = Vector2(81, 384)
+
+[node name="RedCar" type="Sprite2D" parent="Level/Misc"]
+position = Vector2(336, 383)
+texture = ExtResource("15_37s47")
+
+[node name="GreenCar" type="Sprite2D" parent="Level/Misc"]
+position = Vector2(369, 384)
+rotation = 3.1415927
+texture = ExtResource("16_bt5mj")
+
+[node name="StaticBody2D9" parent="Level/Misc" instance=ExtResource("17_bt5mj")]
+position = Vector2(33, 179)
+rotation = 1.5707964
+
+[node name="StaticBody2D10" parent="Level/Misc" instance=ExtResource("18_ssvqc")]
+position = Vector2(261, 89)
+
+[node name="StaticBody2D11" parent="Level/Misc" instance=ExtResource("24_e1j6l")]
+position = Vector2(378, 350)
+
+[node name="StaticBody2D12" parent="Level/Misc" instance=ExtResource("24_e1j6l")]
+position = Vector2(296, 116)
+
+[node name="StaticBody2D13" parent="Level/Misc" instance=ExtResource("25_bhx41")]
+position = Vector2(119, 115)
+
+[node name="StaticBody2D14" parent="Level/Misc" instance=ExtResource("25_bhx41")]
+position = Vector2(7, 367)
+
+[node name="StaticBody2D15" parent="Level/Misc" instance=ExtResource("14_rysoc")]
+position = Vector2(7, 378)
+
+[node name="StaticBody2D16" parent="Level/Misc" instance=ExtResource("26_qnb83")]
+position = Vector2(97, 341)
+
+[node name="StaticBody2D17" parent="Level/Misc" instance=ExtResource("26_qnb83")]
+position = Vector2(112, 235)
+
+[node name="StaticBody2D18" parent="Level/Misc" instance=ExtResource("26_qnb83")]
+position = Vector2(15, 341)
+
+[node name="StaticBody2D19" parent="Level/Misc" instance=ExtResource("26_qnb83")]
+position = Vector2(318, 340)
+
+[node name="Boxes" type="Node2D" parent="Level"]
+y_sort_enabled = true
+
+[node name="StaticBody2D" parent="Level/Boxes" instance=ExtResource("9_kvuet")]
+position = Vector2(149, 354)
+
+[node name="StaticBody2D3" parent="Level/Boxes" instance=ExtResource("9_kvuet")]
+position = Vector2(164, 351)
+
+[node name="StaticBody2D2" parent="Level/Boxes" instance=ExtResource("10_trtic")]
+position = Vector2(159, 359)
+
+[node name="StaticBody2D8" parent="Level/Boxes" instance=ExtResource("11_trtic")]
+position = Vector2(336, 354)
 
 [node name="WorldBoundaries" type="Node" parent="."]
 
 [node name="WorldBoundary_Top" parent="WorldBoundaries" instance=ExtResource("6_p57ef")]
 rotation = -3.1415925
+metadata/_edit_lock_ = true
 
 [node name="WorldBoundary_Left" parent="WorldBoundaries" instance=ExtResource("6_p57ef")]
 rotation = 1.5707964
+metadata/_edit_lock_ = true
 
 [node name="WorldBoundary_Right" parent="WorldBoundaries" instance=ExtResource("6_p57ef")]
 position = Vector2(385, 0)
 rotation = -1.5707964
+metadata/_edit_lock_ = true
 
 [node name="WorldBoundary_Bottom" parent="WorldBoundaries" instance=ExtResource("6_p57ef")]
 position = Vector2(0, 640)
 rotation = 0.0
-
-[node name="Cars" type="Node" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="CarDespawnAreas" type="Node" parent="."]
 
 [node name="DespawnLeft" parent="CarDespawnAreas" instance=ExtResource("10_vtaks")]
 rotation = 1.5707964
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarDespawnAreas/DespawnLeft"]
 position = Vector2(1, 28.999985)
@@ -92,6 +281,7 @@ shape = SubResource("WorldBoundaryShape2D_vtaks")
 
 [node name="DespawnRight" parent="CarDespawnAreas" instance=ExtResource("10_vtaks")]
 position = Vector2(420, 0)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarDespawnAreas/DespawnRight"]
 rotation = -1.5707964
@@ -101,12 +291,16 @@ shape = SubResource("WorldBoundaryShape2D_kvpfn")
 
 [node name="CarSpawnPoint" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(-5, 482)
+metadata/_edit_lock_ = true
 
 [node name="CarSpawnPoint2" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(392, 459)
+metadata/_edit_lock_ = true
 
 [node name="CarSpawnPoint3" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(391, 436)
+metadata/_edit_lock_ = true
 
 [node name="CarSpawnPoint4" parent="CarSpawnPoints" instance=ExtResource("11_kvpfn")]
 position = Vector2(-5, 413)
+metadata/_edit_lock_ = true

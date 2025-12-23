@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjij53u8y1cu8"]
+
+[ext_resource type="Texture2D" uid="uid://58kopy31xbf8" path="res://assets/graphics/objects/taxi.png" id="1_kcaf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy5m4"]
+size = Vector2(12, 19)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kcaf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_uy5m4")

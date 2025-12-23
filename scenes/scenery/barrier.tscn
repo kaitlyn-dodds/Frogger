@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcvafnc360gl"]
+
+[ext_resource type="Texture2D" uid="uid://c5iy3tuxd0vaw" path="res://assets/graphics/objects/barrier.png" id="1_2s4ry"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joiol"]
+size = Vector2(14, 4)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 2130706432
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2s4ry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_joiol")

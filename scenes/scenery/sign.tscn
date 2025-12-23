@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5pu122v27yf3"]
+
+[ext_resource type="Texture2D" uid="uid://oqgtp468wc6x" path="res://assets/graphics/objects/sign.png" id="1_35nwe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35nwe"]
+size = Vector2(2, 3)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("1_35nwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_35nwe")

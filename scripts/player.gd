@@ -5,7 +5,6 @@ extends CharacterBody2D
 const SPEED = 4000.0
 const JUMP_VELOCITY = -400.0
 
-
 func setPlayerAnimation(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
 		player_sprite.play("idle")
