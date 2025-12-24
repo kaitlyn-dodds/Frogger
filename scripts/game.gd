@@ -29,7 +29,7 @@ func _on_score_timer_timeout() -> void:
 
 func _on_finish_area_body_entered(_body: Node2D) -> void:
 	# update score
-	if score > Global.score:
+	if score < Global.score:
 		Global.score = score
 	
 	Global.go_to_title()
