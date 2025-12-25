@@ -15,12 +15,6 @@ A small Godot 4 project inspired by the classic *Frogger* arcade game. The playe
 
 ![Title Screen](assets/gifs/frogger_success.gif)
 
-## Technical Details
-
-- **Engine:** Godot 4.5.1
-- **Language:** GDScript
-- **Project Type:** Small gameplay prototype / mechanics showcase
-
 ## Key Features
 
 - Basic sprite-based player movement and animations
@@ -32,6 +26,12 @@ A small Godot 4 project inspired by the classic *Frogger* arcade game. The playe
 - Global state and scene transitions managed via autoloads
 
 ![Title Screen](assets/gifs/frogger_death.gif)
+
+## Technical Details
+
+- **Engine:** Godot 4.5.1
+- **Language:** GDScript
+- **Project Type:** Small gameplay prototype / mechanics showcase
 
 ## Getting Started
 
