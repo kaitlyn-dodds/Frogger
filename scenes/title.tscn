@@ -96,6 +96,4 @@ label_settings = SubResource("LabelSettings_p6dhs")
 [node name="CarSpawner" type="Node2D" parent="."]
 
 [node name="CarSpawnPoint" parent="CarSpawner" instance=ExtResource("3_p6dhs")]
-position = Vector2(-47, 593)
-carSpeed = 200
-spawnJitter = 0.8
+position = Vector2(-51, 893)

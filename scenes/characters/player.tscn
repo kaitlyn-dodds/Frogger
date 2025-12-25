@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dghd7rii024ea"]
+[gd_scene load_steps=20 format=3 uid="uid://dghd7rii024ea"]
 
 [ext_resource type="Script" uid="uid://c1u7dvya2dvhi" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bj4342twa3cqq" path="res://assets/graphics/player/player_dead.png" id="2_76oj4"]
 [ext_resource type="Texture2D" uid="uid://c4q6c7mxqh78h" path="res://assets/graphics/player/player_tileset.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://bmnw3ib1dajnp" path="res://assets/graphics/player/player_happy.png" id="3_dyp2m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("2_g2els")
@@ -64,6 +65,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dyp2m")
+}],
+"loop": true,
+"name": &"happy",
 "speed": 5.0
 }, {
 "frames": [{
@@ -143,8 +152,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyp2m"]
+size = Vector2(8, 7)
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -154,9 +163,9 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"dead"
+animation = &"happy"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_3vyb7")
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_dyp2m")

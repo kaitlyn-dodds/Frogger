@@ -3,10 +3,12 @@ extends Node
 var score: int = 0
 var player_can_move: bool = false
 var player_dead: bool = false
+var player_finished: bool = false
 
 func restart() -> void:
 	player_dead = false
 	player_can_move = false
+	player_finished = false
 	
 	call_deferred("change_scene", "res://scenes/game.tscn")
 	
@@ -27,6 +29,22 @@ func hit_player(_node: Node2D) -> void:
 	# play death animation
 	player_dead = true
 	
+	# wait for 1 second
+	await get_tree().create_timer(0.5).timeout
+	
+	# change scene
+	go_to_title()
+	
+	
+func finish_level(player_score: int) -> void:
+	# set global state
+	player_finished = true # plays happy animation
+	player_can_move = false # halt player movement
+
+	# update score
+	if player_score < score or score == 0:
+		score = player_score
+		
 	# wait for 1 second
 	await get_tree().create_timer(1.0).timeout
 	

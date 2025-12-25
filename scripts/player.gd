@@ -9,6 +9,8 @@ func _set_player_animation(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
 		if Global.player_dead:
 			player_sprite.play("dead")
+		elif Global.player_finished:
+			player_sprite.play("happy")
 		else:
 			player_sprite.play("idle")
 		return
@@ -31,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	if Global.player_can_move:	
 		_handle_player_movement(delta)
 		
-	if Global.player_dead:
+	if Global.player_dead or Global.player_finished:
 		velocity = Vector2.ZERO
 		
 	# set character animation 
